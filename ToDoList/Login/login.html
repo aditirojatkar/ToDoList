@@ -4,22 +4,22 @@
         <link rel="stylesheet" href="login.css">
         <title> ToDoList </title>
     </head>
-    <body>
+    <body ng-app"listApp">
         <form action="../List/list.html">
-                <table class="login-div">
+                <table class="login-div" ng-controller="loginController">
                         <tr class="table-row">
                             <td class="table-column">
-                                <input type="text" placeholder="Username..." class="input-area" required>
+                                <input type="text" placeholder="Username..." class="input-area" ng-model="userName" required>
                             </td>
                         </tr>
                         <tr class="table-row">
                                 <td class="table-column">
-                                    <input type="password" placeholder="Password..." class="input-area" required    s>
+                                    <input type="password" placeholder="Password..." class="input-area" ng-model="password" required    s>
                                 </td>
                             </tr>
                         <tr class="table-row">
                                 <td class="table-column">
-                                    <input type="submit" value="LOGIN" class="login-button input-area">
+                                    <input type="submit" value="LOGIN" ng-click= "validateUser()" class="login-button input-area">
                                 </td>
                             </tr>
                     </table>
