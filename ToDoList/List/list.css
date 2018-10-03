@@ -46,9 +46,10 @@ body {
 .item-table-row {
     width: 100%;
     margin: 10px;
-    border-bottom-style: solid; 
-    border-bottom-color: #2b303b;
+    border: none;
     padding : 8%;
+    background: #2b303b;
+    opacity: 0.5;
 }
 
 .item-table-column {
@@ -59,6 +60,23 @@ body {
 .remove-button {
     float: right;
     margin-right: 50px;
+}
+
+.listItem{
+    color: #ffcccc;
+    font-size: 14pt;
+    padding-left: 50%; 
+    font-family: 'Roboto';
+}
+
+.listItem:hover {
+    color: #ffcccc;
+}
+
+.item-table-row:hover{
+    background: black;
+    /* color: #2b303b; */
+    opacity: 0.5;
 }
 /* ________________________________________________________________________________________________________________ */
 
