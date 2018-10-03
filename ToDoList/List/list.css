@@ -1,0 +1,78 @@
+body {
+    background:url(../Images/backgroundImage.jpg) no-repeat;
+    background-size: 100%;
+    font-family: 'Roboto';
+}
+
+.header-area {
+    width: 100%;
+    background-color: #ffcccc;
+    height: 80px;
+    border: none;
+    font-size: 25pt;
+    float: left;
+    color: #262626;
+    padding-left: 45px;
+    padding-top:20px;
+    font-family: 'Roboto';
+}
+
+.logout-button {
+  background: #2b303b;
+  color:#ffcccc;
+  font-size: 12pt;
+  width: 100px;
+  height: 40px;
+  z-index: 1px;
+  border: none;
+  float: right;
+  margin-right:10px;
+  border-radius: 3px;
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+.add-button {
+    background: #2b303b;
+    color:#ffcccc;
+    float: right;
+    margin-right:10px;
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+    font-family: 'Roboto';
+}
+
+.item-table-row {
+    width: 100%;
+    margin: 10px;
+    border-bottom-style: solid; 
+    border-bottom-color: #2b303b;
+    padding : 8%;
+}
+
+.item-table-column {
+    width: 100%;
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+.remove-button {
+    float: right;
+    margin-right: 50px;
+}
+/* ________________________________________________________________________________________________________________ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
