@@ -17,7 +17,7 @@
         <header>
             <h1 class="header-area">CHECK IT
                     <button class="logout-button" id="logout-button">LOGOUT</button>
-                    <button id="myBtn" class="add-button btn btn-success btn-add" type="button")>+</button>
+                    <button id="myBtn" class="add-button btn btn-success btn-add" type="button" ng-click="setItemNameEmpty()">+</button>
             </h1>
         </header>
         <!-- MODAL -->
@@ -40,8 +40,9 @@
           
           </div>
           <div class="modal-footer">
-                <input type="submit" value="SAVE" class="modal-button" ng-click="addItem()" id="save-button">
-              <input type="reset" value="RESET" class="modal-button">
+                <input type="submit" value="SAVE" class="modal-button" ng-click="addItem()" id="save-button" ng-show="!isUpdateModal">
+                <button class="modal-button" id="update-button" ng-show="isUpdateModal">UPDATE</button>
+                <input type="reset" value="RESET" class="modal-button">
           </div>
         </div>
     </form>
@@ -58,7 +59,5 @@
                 </td>
             </tr>
         </table>
-               
-
     </body>
 </html>

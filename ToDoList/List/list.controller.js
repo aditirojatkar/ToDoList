@@ -2,6 +2,9 @@ var app =angular.module('myApp',[]);
 app.controller('ItemsController',['$scope',function($scope){
     $scope.newItemName="";
     $scope.items=[];
+    $scope.itemIndex=-1;
+    $scope.isUpdateModal=false;
+    var modal = document.getElementById('myModal');
     $scope.addItem = function (index,titleValue) {
         // console.log(index);
         // var key = Object.keys($scope.items)[index];
@@ -25,13 +28,15 @@ app.controller('ItemsController',['$scope',function($scope){
     }
 
     $scope.updateItem = function (index) {
-        var modal = document.getElementById('myModal');
+        debugger;
+        $scope.isUpdateModal = true;
+        $scope.itemIndex = index;
         
         var key = Object.keys($scope.items)[index];
         $scope.newItemName = $scope.items[key].title;
 
         modal.style.display = "block";
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close")[1];
 
         // var saveButton = document.getElementById('save-button');
 
@@ -51,4 +56,18 @@ window.onclick = function(event) {
     }
 }
     }
+
+    var updateButton = document.getElementById('update-button');
+        updateButton.onclick=function(){
+            $scope.items.splice($scope.itemIndex,1,{
+                        id: $scope.itemIndex,
+                        title:$scope.newItemName
+                    });
+                modal.style.display="none";
+        }
+
+        $scope.setItemNameEmpty = function() {
+            $scope.newItemName="";
+        }
+
 }]);
