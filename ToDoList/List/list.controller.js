@@ -6,29 +6,21 @@ app.controller('ItemsController',['$scope',function($scope){
     $scope.isUpdateModal=false;
     var modal = document.getElementById('myModal');
     $scope.addItem = function (index,titleValue) {
-        // console.log(index);
-        // var key = Object.keys($scope.items)[index];
-        // console.log(key);
-        //if(key == undefined){
+        if($scope.newItemName != null || $scope.newItemName != ""){
             $scope.items.push({
                 id: $scope.items.length + 1,
                 title: $scope.newItemName
             });
-        //}
-        // else {
-        //     $scope.items.splice(index,1,{
-        //         id: index,
-        //         title:titleValue
-        //     });
-        // }
+            $scope.newItemName="";
+            modal.style.display = "none";
+        }
     }
 
     $scope.deleteItem = function (index) {
         $scope.items.splice(index, 1);
     }
 
-    $scope.updateItem = function (index) {
-        debugger;
+    $scope.openItem = function (index) {
         $scope.isUpdateModal = true;
         $scope.itemIndex = index;
         
@@ -38,36 +30,33 @@ app.controller('ItemsController',['$scope',function($scope){
         modal.style.display = "block";
         var span = document.getElementsByClassName("close")[1];
 
-        // var saveButton = document.getElementById('save-button');
-
-        // saveButton.onclick = function(index){
-        //     $scope.addItem(index,$scope.newItemName);
-        // }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
+    span.onclick = function() {
+        $scope.isUpdateModal=false;
         modal.style.display = "none";
     }
-}
-    }
 
-    var updateButton = document.getElementById('update-button');
-        updateButton.onclick=function(){
-            $scope.items.splice($scope.itemIndex,1,{
-                        id: $scope.itemIndex,
-                        title:$scope.newItemName
-                    });
-                modal.style.display="none";
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            $scope.isUpdateModal=false;
+            modal.style.display = "none";
         }
-
-        $scope.setItemNameEmpty = function() {
+    }
+    }
+    $scope.updateItem=function(){
+        if($scope.newItemName != null || $scope.newItemName != ""){
+            $scope.items.splice($scope.itemIndex,1,{
+                id: $scope.itemIndex,
+                title:$scope.newItemName
+            });
+            modal.style.display="none";
+            $scope.isUpdateModal=false;
             $scope.newItemName="";
         }
+    }
+
+    $scope.setItemNameEmpty = function() {
+        $scope.isUpdateModal=false;
+        $scope.newItemName="";
+    }
 
 }]);

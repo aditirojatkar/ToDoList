@@ -4,12 +4,10 @@ $scope.username="";
 $scope.password="";
 $scope.isInvalidLogin=false;
 $scope.systemUser=[{
-   // key: $scope.systemUser.length + 1,
     username: "aditiro",
     password: "aditiro"
 },
 {
-   // key: $scope.systemUser.length + 1,
     username: "shwetana",
     password: "shwetana"
 }];
@@ -37,6 +35,8 @@ for(var user in usernames){
         if(password != $scope.password){
             //error condition password
             $scope.isInvalidLogin = true;
+            $scope.username="";
+            $scope.password="";
         }
         else {
             //goto next page
@@ -47,6 +47,8 @@ for(var user in usernames){
     else {
         //error condition for user 
         $scope.isInvalidLogin = true;
+        $scope.username="";
+        $scope.password="";
     }
 
 

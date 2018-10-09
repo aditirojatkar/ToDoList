@@ -33,7 +33,7 @@
             <table>
                 <tr class="table-row">
                     <td class="table-column">
-                            <input type="input" placeholder="...Item" class="modal-input"   ng-model="newItemName" required>
+                            <input type="input" placeholder="...Item" class="modal-input"   ng-model="newItemName" required="required">
                     </td>
                 </tr>
             </table>
@@ -41,7 +41,7 @@
           </div>
           <div class="modal-footer">
                 <input type="submit" value="SAVE" class="modal-button" ng-click="addItem()" id="save-button" ng-show="!isUpdateModal">
-                <button class="modal-button" id="update-button" ng-show="isUpdateModal">UPDATE</button>
+                <input type="submit" value="UPDATE" class="modal-button" id="update-button" ng-show="isUpdateModal" ng-click="updateItem()"></button>
                 <input type="reset" value="RESET" class="modal-button">
           </div>
         </div>
@@ -52,7 +52,7 @@
         <table class="item-table">
             <tr class="item-table-row" ng-repeat="item in items" id="{{item.id}}">
                 <td class="item-table-column">
-                        <a href="#" id="itemLink" ng-click="updateItem($index)" class="listItem">{{item.title}}</a>
+                        <a href="#" id="itemLink" ng-click="openItem($index)" class="listItem">{{item.title}}</a>
                 </td>
                 <td class="item-table-column">
                         <button id="myRemoveBtn" class="delete-item remove-button btn btn-danger btn-remove" type="button" ng-click="deleteItem($index)")>-</button>
